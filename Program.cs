@@ -6,10 +6,32 @@ namespace Calculator
     {
         static void Main(string[] arg)
         {
-            // Sum();
-            // Subtraction();
-            // Division();
-            Multiplication();
+            Menu();
+        }
+
+        static void Menu()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Qual operação deseja fazer?");
+            Console.WriteLine("1 - Soma");
+            Console.WriteLine("2 - Subtração");
+            Console.WriteLine("3 - Divisão");
+            Console.WriteLine("4 - Multiplicação");
+            Console.WriteLine("5 - Sair");
+            Console.WriteLine("--------------------");
+
+            short res = short.Parse(Console.ReadLine());
+
+            switch (res)
+            {
+                case 1: Sum(); break;
+                case 2: Subtraction(); break;
+                case 3: Division(); break;
+                case 4: Multiplication(); break;
+                case 5: System.Environment.Exit(0); break;
+                default: Menu(); break;
+            }
         }
 
         static void Sum()
@@ -27,6 +49,7 @@ namespace Calculator
             float result = v1 + v2;
             Console.WriteLine($"Resultado da soma: {result}");
             Console.ReadKey();
+            Menu();
         }
 
         static void Subtraction()
@@ -43,6 +66,7 @@ namespace Calculator
             float result = v1 - v2;
             Console.WriteLine($"Resultado da subtração: {result}");
             Console.ReadKey();
+            Menu();
         }
 
         static void Division()
@@ -59,6 +83,7 @@ namespace Calculator
             float result = v1 / v2;
             Console.WriteLine($"Resultado da divisão é: {result}");
             Console.ReadKey();
+            Menu();
         }
 
         static void Multiplication()
@@ -75,6 +100,7 @@ namespace Calculator
             float result = v1 * v2;
             Console.WriteLine($"Resultado da multiplicação é: {result}");
             Console.ReadKey();
+            Menu();
         }
     }
 }
